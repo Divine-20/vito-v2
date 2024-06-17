@@ -3,6 +3,7 @@ import sqlite3
 import numpy as np
 from keras.models import load_model
 import cvzone
+import os
 
 # Load pre-trained face recognition model
 faceRecognizer = cv2.face.LBPHFaceRecognizer_create()
@@ -19,7 +20,8 @@ class_names = open("labels.txt", "r").readlines()
 overlays = [cv2.imread(f'Glasses/glass{i}.png', cv2.IMREAD_UNCHANGED) for i in range(1, 30)]
 
 # Load Haarcascade for eye detection
-eyeCascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_eye_tree_eyeglasses.xml')
+haar_path = os.path.join(os.path.dirname(cv2.__file__), 'data', 'haarcascade_eye_tree_eyeglasses.xml')
+eyeCascade = cv2.CascadeClassifier(haar_path)
 
 # Constants for display
 fontFace = cv2.FONT_HERSHEY_SIMPLEX
