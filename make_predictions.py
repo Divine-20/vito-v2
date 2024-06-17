@@ -5,10 +5,8 @@ import sqlite3
 # Load pre-trained face recognition model
 faceRecognizer = cv2.face.LBPHFaceRecognizer_create()
 faceRecognizer.read("models/trained_lbph_face_recognizer_model.yml")
-
 # Load Haarcascade for face detection
 faceCascade = cv2.CascadeClassifier("models/haarcascade_frontalface_default.xml")
-
 fontFace = cv2.FONT_HERSHEY_SIMPLEX
 fontScale = 0.6
 fontColor = (255, 255, 255)
